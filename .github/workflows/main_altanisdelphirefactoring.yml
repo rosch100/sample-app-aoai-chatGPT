@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'AltanisDelphiRefactoring'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_66CE8C3DDF924524AF8BB5C0AB8152A5 }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
