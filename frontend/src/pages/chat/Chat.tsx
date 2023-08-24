@@ -31,6 +31,10 @@ const Chat = () => {
     const [answers, setAnswers] = useState<ChatMessage[]>([]);
     const abortFuncs = useRef([] as AbortController[]);
     const [showAuthMessage, setShowAuthMessage] = useState<boolean>(true);
+    const [systemMessage, setSystemMessage] = useState(process.env.AZURE_OPENAI_SYSTEM_MESSAGE || '');  
+  
+    const handleSystemMessageChange = (event) => {  
+      setSystemMessage(event.target.value); 
     
     const getUserInfoList = async () => {
         const userInfoList = await getUserInfo();
@@ -281,6 +285,11 @@ const Chat = () => {
                 )}
                 </Stack>
             )}
+            <input  
+                type="text"  
+                value={systemMessage}  
+                onChange={handleSystemMessageChange}  
+            /> 
         </div>
     );
 };
